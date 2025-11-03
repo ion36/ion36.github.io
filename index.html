@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name | 3D Art & Game Dev Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    body {
+      background: radial-gradient(circle at top left, #0f172a, #000);
+      background-attachment: fixed;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .glow {
+      text-shadow: 0 0 10px rgba(45, 212, 191, 0.6);
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body class="text-gray-100 font-sans selection:bg-teal-400 selection:text-black">
+
+  <!-- HEADER / HERO -->
+  <header class="text-center py-24 glass mx-6 mt-6 rounded-2xl fade-in">
+    <h1 class="text-5xl md:text-6xl font-bold mb-4 glow">3D Titan</h1>
+    <p class="text-gray-400 text-lg mb-6">
+      3D Artist • Game Developer
+    </p>
+    <div class="flex justify-center space-x-8">
+      <a href="https://www.cgtrader.com/designers/ion36" target="_blank" class="text-teal-400 hover:text-teal-300 transition">
+        CGTrader
+      </a>
+      <a href="https://www.youtube.com/@3dtitan731" target="_blank" class="text-teal-400 hover:text-teal-300 transition">
+        YouTube
+      </a>
+      <a href="#gamedev" class="text-gray-400 hover:text-gray-300 transition">
+        Game Dev
+      </a>
+    </div>
+  </header>
+
+  <!-- 3D ART SECTION -->
+  <section id="art" class="max-w-6xl mx-auto px-6 py-24 fade-in">
+    <h2 class="text-3xl font-semibold mb-12 text-center glow">3D Art Gallery</h2>
+
+    <!-- PROJECT 1 -->
+    <div class="mb-20 glass p-6 rounded-2xl hover:shadow-[0_0_25px_rgba(45,212,191,0.2)] transition">
+      <h3 class="text-2xl font-semibold mb-3">Project Title One</h3>
+      <p class="text-gray-400 mb-6">A short description about your project — software used, theme, or techniques.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <img src="images/project1-1.jpg" alt="Project 1 Image 1" class="rounded-xl hover:scale-105 transition-transform duration-300">
+        <img src="images/project1-2.jpg" alt="Project 1 Image 2" class="rounded-xl hover:scale-105 transition-transform duration-300">
+        <img src="images/project1-3.jpg" alt="Project 1 Image 3" class="rounded-xl hover:scale-105 transition-transform duration-300">
+      </div>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="mb-20 glass p-6 rounded-2xl hover:shadow-[0_0_25px_rgba(45,212,191,0.2)] transition">
+      <h3 class="text-2xl font-semibold mb-3">Project Title Two</h3>
+      <p class="text-gray-400 mb-6">Another 3D art piece or collection showcase.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <img src="images/project2-1.jpg" alt="Project 2 Image 1" class="rounded-xl hover:scale-105 transition-transform duration-300">
+        <img src="images/project2-2.jpg" alt="Project 2 Image 2" class="rounded-xl hover:scale-105 transition-transform duration-300">
+        <img src="images/project2-3.jpg" alt="Project 2 Image 3" class="rounded-xl hover:scale-105 transition-transform duration-300">
+      </div>
+    </div>
+  </section>
+
+  <!-- GAME DEV SECTION -->
+  <section id="gamedev" class="py-24 bg-[rgba(255,255,255,0.02)] fade-in">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-semibold mb-12 text-center glow">Game Development</h2>
+
+      <!-- GAME PROJECT -->
+      <div class="glass p-6 rounded-2xl hover:shadow-[0_0_25px_rgba(45,212,191,0.2)] transition">
+        <h3 class="text-2xl font-semibold mb-3">Game Project Title</h3>
+        <p class="text-gray-400 mb-6">Brief description of the game, tools used, and your role.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <img src="images/game1-1.jpg" alt="Game Project 1 Image 1" class="rounded-xl hover:scale-105 transition-transform duration-300">
+          <img src="images/game1-2.jpg" alt="Game Project 1 Image 2" class="rounded-xl hover:scale-105 transition-transform duration-300">
+          <img src="images/game1-3.jpg" alt="Game Project 1 Image 3" class="rounded-xl hover:scale-105 transition-transform duration-300">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-10 text-gray-500 text-sm border-t border-neutral-800 mt-16 fade-in">
+    <p>© 2025 Your Name. Built with TailwindCSS & 💚 Blender Love</p>
+  </footer>
+
+  <script>
+    // Simple parallax effect on scroll
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      document.body.style.backgroundPosition = `center ${y * 0.3}px`;
+    });
+  </script>
+
+</body>
+</html>
