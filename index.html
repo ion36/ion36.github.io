@@ -22,14 +22,50 @@
       animation: fadeUp 1s ease-out forwards;
     }
     @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      to { opacity: 1; transform: translateY(0); }
     }
     .glow-hover:hover {
       box-shadow: 0 0 25px rgba(45,212,191,0.3);
       transform: scale(1.03);
+    }
+    /* Lightbox styles */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 50;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s ease;
+    }
+    #lightbox img {
+      max-height: 90%;
+      max-width: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 40px rgba(45,212,191,0.3);
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: 2rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      user-select: none;
+      background: rgba(255,255,255,0.1);
+      border-radius: 9999px;
+      transition: background 0.3s;
+    }
+    .lightbox-nav:hover { background: rgba(255,255,255,0.25); }
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #fff;
     }
   </style>
 </head>
@@ -41,15 +77,9 @@
     <h1 class="text-5xl md:text-6xl font-bold text-teal-400">Ion36</h1>
     <p class="text-gray-400 text-lg mt-2">3D Artist & Game Developer</p>
     <div class="flex justify-center space-x-6 mt-6">
-      <a href="https://www.cgtrader.com/designers/ion36" target="_blank" class="text-teal-400 hover:text-teal-300 transition">
-        CGTrader
-      </a>
-      <a href="https://www.youtube.com/@3dtitan731" target="_blank" class="text-teal-400 hover:text-teal-300 transition">
-        YouTube
-      </a>
-      <!-- <a href="#gamedev" class="text-gray-400 hover:text-gray-300 transition">
-        Game Dev
-      </a> -->
+      <a href="https://www.cgtrader.com/designers/ion36" target="_blank" class="text-teal-400 hover:text-teal-300 transition">CGTrader</a>
+      <a href="https://www.youtube.com/@3dtitan731" target="_blank" class="text-teal-400 hover:text-teal-300 transition">YouTube</a>
+      <a href="#gamedev" class="text-gray-400 hover:text-gray-300 transition">Game Dev</a>
     </div>
   </header>
 
@@ -57,57 +87,22 @@
   <section id="art" class="max-w-7xl mx-auto px-4 py-16 space-y-24">
     <h2 class="text-3xl font-semibold text-center text-gray-300 mb-10 fade-up">3D Art</h2>
 
-    <!-- Blender Project 1–5 -->
-    <div class="space-y-24">
-      <!-- Project 1 -->
-      <div class="fade-up">
-        <h3 class="text-2xl text-teal-400 mb-4">Blender Project One</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <img src="images/project1-1.webp" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-          <img src="images/project1-2.jpg" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-          <img src="images/project1-3.jpg" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-          <img src="images/project1-4.jpg" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-        </div>
+    <!-- Project 1 -->
+    <div class="fade-up">
+      <h3 class="text-2xl text-teal-400 mb-4">Blender Project One</h3>
+      <div class="grid grid-cols-6 gap-4 auto-rows-[150px] sm:auto-rows-[200px] md:auto-rows-[250px]">
+        <img src="images/project1-1.webp" class="col-span-6 sm:col-span-4 row-span-2 rounded-xl glass glow-hover object-cover w-full h-full cursor-pointer" alt="">
+        <img src="images/project1-2.jpg" class="col-span-2 rounded-xl glass glow-hover object-cover w-full h-full cursor-pointer" alt="">
+        <img src="images/project1-3.jpg" class="col-span-3 rounded-xl glass glow-hover object-cover w-full h-full cursor-pointer" alt="">
+        <img src="images/project1-4.jpg" class="col-span-3 rounded-xl glass glow-hover object-cover w-full h-full cursor-pointer" alt="">
       </div>
+    </div>
 
-      <!-- Project 2 -->
-      <div class="fade-up">
-        <h3 class="text-2xl text-teal-400 mb-4">Blender Project Two</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <img src="images/project2-1.webp" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-          <img src="images/project2-2.jpg" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-          <img src="images/project2-3.jpg" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-        </div>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="fade-up">
-        <h3 class="text-2xl text-teal-400 mb-4">Blender Project Three</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <img src="images/project3-1.jpg" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-          <img src="images/project3-2.jpg" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-          <img src="images/project3-3.jpg" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-        </div>
-      </div>
-
-      <!-- Project 4 -->
-      <div class="fade-up">
-        <h3 class="text-2xl text-teal-400 mb-4">Blender Project Four</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <img src="images/project4-1.jpg" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-          <img src="images/project4-2.jpg" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-          <img src="images/project4-3.jpg" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-        </div>
-      </div>
-
-      <!-- Project 5 -->
-      <div class="fade-up">
-        <h3 class="text-2xl text-teal-400 mb-4">Blender Project Five</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <img src="images/project5-1.jpg" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-          <img src="images/project5-2.jpg" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-          <img src="images/project5-3.jpg" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-        </div>
+    <!-- Project 2 -->
+    <div class="fade-up">
+      <h3 class="text-2xl text-teal-400 mb-4">Blender Project Two</h3>
+      <div class="grid grid-cols-6 gap-4 auto-rows-[150px] sm:auto-rows-[200px] md:auto-rows-[250px]">
+        <img src="images/project2-1.webp" class="col-span-6 sm:col-span-6 row-span-2 rounded-xl glass glow-hover object-cover w-full h-full cursor-pointer" alt="">
       </div>
     </div>
   </section>
@@ -117,23 +112,11 @@
     <div class="max-w-7xl mx-auto px-4 space-y-24">
       <h2 class="text-3xl font-semibold text-center text-gray-300 mb-10">Game Dev</h2>
 
-      <!-- Game Project 1 -->
       <div class="fade-up">
         <h3 class="text-2xl text-teal-400 mb-4">Game Project One</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <img src="images/game1-1.jpg" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-          <img src="images/game1-2.jpg" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-          <img src="images/game1-3.jpg" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-        </div>
-      </div>
-
-      <!-- Game Project 2 -->
-      <div class="fade-up">
-        <h3 class="text-2xl text-teal-400 mb-4">Game Project Two</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <img src="images/game2-1.jpg" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-          <img src="images/game2-2.jpg" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
-          <img src="images/game2-3.jpg" class="rounded-xl glass glow-hover transition-all duration-500 hover:scale-105" alt="">
+        <div class="grid grid-cols-6 gap-4 auto-rows-[150px] sm:auto-rows-[200px] md:auto-rows-[250px]">
+          <img src="images/game1-1.jpg" class="col-span-6 sm:col-span-4 row-span-2 rounded-xl glass glow-hover object-cover w-full h-full cursor-pointer" alt="">
+          <img src="images/game1-2.jpg" class="col-span-2 rounded-xl glass glow-hover object-cover w-full h-full cursor-pointer" alt="">
         </div>
       </div>
     </div>
@@ -144,18 +127,71 @@
     <p>© 2025 Ion36. Built with TailwindCSS & ❤️ Blender</p>
   </footer>
 
-  <!-- FADE-IN ON SCROLL -->
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="flex">
+    <span class="lightbox-close">&times;</span>
+    <span class="lightbox-nav left-4" id="prev">&#10094;</span>
+    <img id="lightbox-img" src="" alt="">
+    <span class="lightbox-nav right-4" id="next">&#10095;</span>
+  </div>
+
+  <!-- JS -->
   <script>
+    // fade-in animation observer
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('opacity-100', 'translate-y-0');
       });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.fade-up').forEach(el => {
       el.style.opacity = 0;
       el.style.transform = 'translateY(40px)';
       observer.observe(el);
+    });
+
+    // lightbox logic
+    const images = [...document.querySelectorAll('img.cursor-pointer')];
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const nextBtn = document.getElementById('next');
+    const prevBtn = document.getElementById('prev');
+    let index = 0;
+
+    function showLightbox(i) {
+      index = i;
+      lightboxImg.src = images[i].src;
+      lightbox.style.display = 'flex';
+      setTimeout(() => lightbox.style.opacity = 1, 10);
+    }
+
+    images.forEach((img, i) => img.addEventListener('click', () => showLightbox(i)));
+
+    function closeLightbox() {
+      lightbox.style.opacity = 0;
+      setTimeout(() => lightbox.style.display = 'none', 300);
+    }
+
+    function nextImage() {
+      index = (index + 1) % images.length;
+      lightboxImg.src = images[index].src;
+    }
+
+    function prevImage() {
+      index = (index - 1 + images.length) % images.length;
+      lightboxImg.src = images[index].src;
+    }
+
+    closeBtn.addEventListener('click', closeLightbox);
+    nextBtn.addEventListener('click', nextImage);
+    prevBtn.addEventListener('click', prevImage);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (lightbox.style.display === 'flex') {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft') prevImage();
+      }
     });
   </script>
 
