@@ -23,10 +23,46 @@
     .glow-hover {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
+      position: relative;
     }
     .glow-hover:hover {
       transform: scale(1.03);
       box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.9);
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      color: #fff;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .hover-hint {
+      position: absolute;
+      bottom: 0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.875rem;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      color: #fff;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .glow-hover:hover .hover-hint {
+      opacity: 1;
     }
   </style>
 </head>
@@ -36,10 +72,10 @@
   <header class="text-center py-12 bg-darkcard">
     <h1 class="text-5xl font-bold mb-2 text-accent">3D Titan Portfolio</h1>
     <p class="text-lg text-gray-400">3D Art & Game Development</p>
-    <div class="space-x-4">
+    <div class="space-x-4 mt-4">
       <a href="https://www.cgtrader.com/designers/ion36" target="_blank" class="px-4 py-2 bg-indigo-600 rounded hover:bg-indigo-500 transition">CGTrader</a>
       <a href="https://www.youtube.com/@3dtitan731" target="_blank" class="px-4 py-2 bg-red-600 rounded hover:bg-red-500 transition">YouTube</a>
-      <a href="" target="_blank" class="px-4 py-2 bg-red-600 rounded hover:bg-red-500 transition">Steam Page</a>
+      <a href="#" target="_blank" class="px-4 py-2 bg-green-600 rounded hover:bg-green-500 transition">Steam Page</a>
     </div>
   </header>
 
@@ -48,110 +84,63 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
       <!-- Project 1 -->
-      <div x-data="{ open: false }" class="rounded-xl overflow-hidden bg-darkcard shadow-xl glow-hover">
-        <div @click="open = !open" class="relative">
-          <img src="images/project1-1.webp" alt="Project 1" class="w-full h-auto object-cover">
-          <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-darkbg/90 to-transparent p-6">
-            <h2 class="text-2xl font-semibold text-white">Epic 3D Scene</h2>
-            <p class="text-gray-300 mt-1">High-poly modeling & environment design.</p>
-          </div>
-        </div>
-        <div x-show="open" x-transition class="px-6 py-4 bg-darkcard border-t border-gray-700 text-gray-200">
-          This project showcases realistic 3D modeling with immersive environmental details.
+      <div x-data="{ open: false }" class="glow-hover rounded-xl overflow-hidden shadow-xl relative" @click="open = !open">
+        <img src="images/project1-1.webp" alt="Project 1" class="w-full h-64 object-cover">
+        <div class="hover-hint">Click to see description</div>
+        <div :class="{'show': open}" class="overlay">
+          <p>This project showcases realistic 3D modeling with immersive environmental details.</p>
         </div>
       </div>
 
       <!-- Project 2 -->
-      <div x-data="{ open: false }" class="rounded-xl overflow-hidden bg-darkcard shadow-xl glow-hover">
-        <div @click="open = !open" class="relative">
-          <img src="images/project2-1.webp" alt="Project 2" class="w-full h-auto object-cover">
-          <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-darkbg/90 to-transparent p-6">
-            <h2 class="text-2xl font-semibold text-white">Fantasy Character</h2>
-            <p class="text-gray-300 mt-1">Detailed character sculpting.</p>
-          </div>
-        </div>
-        <div x-show="open" x-transition class="px-6 py-4 bg-darkcard border-t border-gray-700 text-gray-200">
-          This project showcases a low poly car model.
+      <div x-data="{ open: false }" class="glow-hover rounded-xl overflow-hidden shadow-xl relative" @click="open = !open">
+        <img src="images/project2-1.webp" alt="Project 2" class="w-full h-64 object-cover">
+        <div class="hover-hint">Click to see description</div>
+        <div :class="{'show': open}" class="overlay">
+          <p>This project showcases a detailed fantasy character sculpt.</p>
         </div>
       </div>
 
-      <div x-data="{ open: false }" @click="open = !open" class="relative cursor-pointer overflow-hidden rounded-lg shadow-lg">
-        <!-- YouTube video -->
-        <div class="w-full h-48">
-          <iframe 
-            class="w-full h-full"
-            src="https://www.youtube.com/embed/UvOjl-EsfhI" 
-            title="The Trench" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen>
-          </iframe>
-        </div>
-        <!-- Overlay with title -->
-        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4">
-          <h2 class="text-white font-bold text-lg">The Trench</h2>
-        </div>
-        <!-- Dropdown description -->
-        <div x-show="open" class="absolute inset-0 bg-black/90 flex items-center justify-center text-white p-4 transition-all duration-300">
+      <!-- Project 3 - YouTube Video -->
+      <div x-data="{ open: false }" class="glow-hover rounded-xl overflow-hidden shadow-xl relative" @click="open = !open">
+        <iframe 
+          class="w-full h-64" 
+          src="https://www.youtube.com/embed/UvOjl-EsfhI?modestbranding=1&rel=0" 
+          title="The Trench" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+        <div class="hover-hint">Click to see description</div>
+        <div :class="{'show': open}" class="overlay">
           <p>A deep-sea themed 3D short film exploring underwater environments. Contributed to the project by building the 3D sets for the submarine and hospital room.</p>
         </div>
       </div>
 
-
-      <!-- Project 3 -->
-      <div x-data="{ open: false }" class="rounded-xl overflow-hidden bg-darkcard shadow-xl glow-hover">
-        <div @click="open = !open" class="relative">
-          <img src="images/project3-1.png" alt="Project 3" class="w-full h-auto object-cover">
-          <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-darkbg/90 to-transparent p-6">
-            <h2 class="text-2xl font-semibold text-white">Sci-Fi Environment</h2>
-            <p class="text-gray-300 mt-1">Futuristic cityscape render.</p>
-          </div>
-        </div>
-        <div x-show="open" x-transition class="px-6 py-4 bg-darkcard border-t border-gray-700 text-gray-200">
-          Designed a realistic 3D apple cidar model.
-        </div>
-      </div>
-
       <!-- Project 4 -->
-      <div x-data="{ open: false }" class="rounded-xl overflow-hidden bg-darkcard shadow-xl glow-hover">
-        <div @click="open = !open" class="relative">
-          <img src="images/project3-3.png" alt="Project 4" class="w-full h-auto object-cover">
-          <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-darkbg/90 to-transparent p-6">
-            <h2 class="text-2xl font-semibold text-white">Game Prop Pack</h2>
-            <p class="text-gray-300 mt-1">Low-poly modular assets.</p>
-          </div>
-        </div>
-        <div x-show="open" x-transition class="px-6 py-4 bg-darkcard border-t border-gray-700 text-gray-200">
-          Created an abandoned victory mansion model inspired by the 1984 story.
+      <div x-data="{ open: false }" class="glow-hover rounded-xl overflow-hidden shadow-xl relative" @click="open = !open">
+        <img src="images/project3-1.png" alt="Project 4" class="w-full h-64 object-cover">
+        <div class="hover-hint">Click to see description</div>
+        <div :class="{'show': open}" class="overlay">
+          <p>Designed a realistic sci-fi environment and futuristic cityscape render.</p>
         </div>
       </div>
 
       <!-- Project 5 -->
-      <div x-data="{ open: false }" class="rounded-xl overflow-hidden bg-darkcard shadow-xl glow-hover">
-        <div @click="open = !open" class="relative">
-          <img src="images/project4-1.png" alt="Project 5" class="w-full h-auto object-cover">
-          <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-darkbg/90 to-transparent p-6">
-            <h2 class="text-2xl font-semibold text-white">Animation Reel</h2>
-            <p class="text-gray-300 mt-1">Short cinematic animation.</p>
-          </div>
-        </div>
-        <div x-show="open" x-transition class="px-6 py-4 bg-darkcard border-t border-gray-700 text-gray-200">
-          Designed a ultra-realistic 3D kitchen utensils set.
+      <div x-data="{ open: false }" class="glow-hover rounded-xl overflow-hidden shadow-xl relative" @click="open = !open">
+        <img src="images/project4-1.png" alt="Project 5" class="w-full h-64 object-cover">
+        <div class="hover-hint">Click to see description</div>
+        <div :class="{'show': open}" class="overlay">
+          <p>Short cinematic animation reel featuring ultra-realistic 3D kitchen utensils.</p>
         </div>
       </div>
 
       <!-- Project 6 -->
-      <div x-data="{ open: false }" class="rounded-xl overflow-hidden bg-darkcard shadow-xl glow-hover">
-        <div @click="open = !open" class="relative">
-          <img src="images/project6-1.webp" alt="Project 6" class="w-full h-auto object-cover">
-          <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-darkbg/90 to-transparent p-6">
-            <h2 class="text-2xl font-semibold text-white">VR Experience</h2>
-            <p class="text-gray-300 mt-1">Immersive VR environment.</p>
-          </div>
-        </div>
-        <div x-show="open" x-transition class="px-6 py-4 bg-darkcard border-t border-gray-700 text-gray-200">
-          Interactive 2D wave-spawner, fantasy game released on Steam.
+      <div x-data="{ open: false }" class="glow-hover rounded-xl overflow-hidden shadow-xl relative" @click="open = !open">
+        <img src="images/project6-1.webp" alt="Project 6" class="w-full h-64 object-cover">
+        <div class="hover-hint">Click to see description</div>
+        <div :class="{'show': open}" class="overlay">
+          <p>Interactive VR experience with immersive 3D environments released on Steam.</p>
         </div>
       </div>
 
