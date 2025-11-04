@@ -1,140 +1,220 @@
-<div class="mt-10 space-y-12 sm:mt-16 lg:mt-24">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ion36 Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            darkbg: '#111827',
+            darkcard: '#1f2937'
+          }
+        }
+      }
+    }
+  </script>
 
-  <!-- Project 1 – Bento Layout -->
-  <div class="grid gap-4 sm:gap-6 lg:grid-cols-3 lg:grid-rows-2">
-    <!-- Left tall -->
-    <div class="relative lg:row-span-2">
-      <div class="absolute inset-px rounded-lg bg-darkcard lg:rounded-l-4xl"></div>
-      <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
-        <div class="relative min-h-120 w-full grow max-lg:mx-auto max-lg:max-w-sm">
-          <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
-            <img src="images/project1-1.webp" alt="Project 1" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
+  <style>
+    .glow-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .glow-hover:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+    }
+  </style>
+</head>
+<body class="bg-darkbg text-gray-100">
+
+  <!-- Header -->
+  <header class="text-center py-12 bg-darkcard">
+    <h1 class="text-5xl font-bold mb-2">3D Titan Portfolio</h1>
+    <p class="text-lg text-gray-400 mb-4">3D Art & Game Development</p>
+    <div class="space-x-4">
+      <a href="https://www.cgtrader.com/designers/ion36" target="_blank" class="px-4 py-2 bg-indigo-600 rounded hover:bg-indigo-500 transition">CGTrader</a>
+      <a href="https://www.youtube.com/@3dtitan731" target="_blank" class="px-4 py-2 bg-red-600 rounded hover:bg-red-500 transition">YouTube</a>
+    </div>
+  </header>
+
+  <main class="bg-gray-900 py-24 sm:py-32">
+    <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+
+      <h2 class="text-center text-base font-semibold text-indigo-400">Blender Projects</h2>
+      <p class="mx-auto mt-2 max-w-lg text-center text-4xl font-semibold tracking-tight text-white sm:text-5xl">3D Art Gallery</p>
+
+      <div class="mt-10 space-y-12 sm:mt-16 lg:mt-24">
+
+      <!-- Project 1 – Bento Layout -->
+      <div class="grid gap-4 sm:gap-6 lg:grid-cols-3 lg:grid-rows-2">
+        <!-- Left tall -->
+        <div class="relative lg:row-span-2">
+          <div class="absolute inset-px rounded-lg bg-darkcard lg:rounded-l-4xl"></div>
+          <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
+            <div class="relative min-h-120 w-full grow max-lg:mx-auto max-lg:max-w-sm">
+              <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
+                <img src="images/project1-1.webp" alt="Project 1" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
+              </div>
+            </div>
           </div>
+          <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15 lg:rounded-l-4xl"></div>
+        </div>
+
+        <!-- Top right -->
+        <div class="relative">
+          <div class="absolute inset-px rounded-lg bg-darkcard"></div>
+          <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
+            <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
+              <img src="images/project1-2.webp" alt="Project 1" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15"></div>
+        </div>
+
+        <!-- Bottom right -->
+        <div class="relative">
+          <div class="absolute inset-px rounded-lg bg-darkcard"></div>
+          <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
+            <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
+              <img src="images/project1-3.webp" alt="Project 1" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15"></div>
         </div>
       </div>
-      <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15 lg:rounded-l-4xl"></div>
+
+      <!-- Project 2 – Bento Layout -->
+      <div class="grid gap-4 sm:gap-6 lg:grid-cols-3 lg:grid-rows-2">
+        <div class="relative lg:row-span-2">
+          <div class="absolute inset-px rounded-lg bg-darkcard lg:rounded-l-4xl"></div>
+          <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
+            <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
+              <img src="images/project2-1.webp" alt="Project 2" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15 lg:rounded-l-4xl"></div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute inset-px rounded-lg bg-darkcard"></div>
+          <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
+            <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
+              <img src="images/project2-2.png" alt="Project 2" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15"></div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute inset-px rounded-lg bg-darkcard"></div>
+          <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
+            <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
+              <img src="images/project2-3.png" alt="Project 2" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15"></div>
+        </div>
+      </div>
+
+      <!-- Project 3 – Bento Layout -->
+      <div class="grid gap-4 sm:gap-6 lg:grid-cols-3 lg:grid-rows-2">
+        <div class="relative lg:row-span-2">
+          <div class="absolute inset-px rounded-lg bg-darkcard lg:rounded-l-4xl"></div>
+          <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
+            <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
+              <img src="images/project3-1.png" alt="Project 3" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15 lg:rounded-l-4xl"></div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute inset-px rounded-lg bg-darkcard"></div>
+          <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
+            <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
+              <img src="images/project3-2.png" alt="Project 3" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15"></div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute inset-px rounded-lg bg-darkcard"></div>
+          <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
+            <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
+              <img src="images/project3-3.png" alt="Project 3" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15"></div>
+        </div>
+      </div>
+
+      <!-- Project 4 – Bento Layout -->
+      <div class="grid gap-4 sm:gap-6 lg:grid-cols-3 lg:grid-rows-2">
+        <div class="relative lg:row-span-2">
+          <div class="absolute inset-px rounded-lg bg-darkcard lg:rounded-l-4xl"></div>
+          <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
+            <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
+              <img src="images/project4-1.png" alt="Project 4" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15 lg:rounded-l-4xl"></div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute inset-px rounded-lg bg-darkcard"></div>
+          <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
+            <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
+              <img src="images/project4-2.png" alt="Project 4" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15"></div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute inset-px rounded-lg bg-darkcard"></div>
+          <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
+            <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
+              <img src="images/project4-3.png" alt="Project 4" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15"></div>
+        </div>
+      </div>
+
     </div>
 
-    <!-- Top right -->
-    <div class="relative">
-      <div class="absolute inset-px rounded-lg bg-darkcard"></div>
-      <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
-        <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
-          <img src="images/project1-2.webp" alt="Project 1" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
-        </div>
-      </div>
-      <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15"></div>
     </div>
+  </main>
 
-    <!-- Bottom right -->
-    <div class="relative">
-      <div class="absolute inset-px rounded-lg bg-darkcard"></div>
-      <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
-        <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
-          <img src="images/project1-3.webp" alt="Project 1" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
-        </div>
-      </div>
-      <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15"></div>
-    </div>
+  <!-- Modal -->
+  <div id="image-modal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50">
+    <span class="absolute top-6 right-6 text-white text-4xl cursor-pointer" onclick="closeModal()">&times;</span>
+    <img id="modal-img" src="" alt="" class="max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl">
   </div>
 
-  <!-- Project 2 – Bento Layout -->
-  <div class="grid gap-4 sm:gap-6 lg:grid-cols-3 lg:grid-rows-2">
-    <div class="relative lg:row-span-2">
-      <div class="absolute inset-px rounded-lg bg-darkcard lg:rounded-l-4xl"></div>
-      <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
-        <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
-          <img src="images/project2-1.webp" alt="Project 2" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
-        </div>
-      </div>
-      <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15 lg:rounded-l-4xl"></div>
-    </div>
+  <script>
+    function openModal(src) {
+      const modal = document.getElementById('image-modal');
+      const modalImg = document.getElementById('modal-img');
+      modalImg.src = src;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
 
-    <div class="relative">
-      <div class="absolute inset-px rounded-lg bg-darkcard"></div>
-      <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
-        <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
-          <img src="images/project2-2.png" alt="Project 2" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
-        </div>
-      </div>
-      <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15"></div>
-    </div>
+    function closeModal() {
+      const modal = document.getElementById('image-modal');
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+    }
 
-    <div class="relative">
-      <div class="absolute inset-px rounded-lg bg-darkcard"></div>
-      <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
-        <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
-          <img src="images/project2-3.png" alt="Project 2" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
-        </div>
-      </div>
-      <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15"></div>
-    </div>
-  </div>
+    document.getElementById('image-modal').addEventListener('click', function(e) {
+      if (e.target.id === 'image-modal') closeModal();
+    });
+  </script>
 
-  <!-- Project 3 – Bento Layout -->
-  <div class="grid gap-4 sm:gap-6 lg:grid-cols-3 lg:grid-rows-2">
-    <div class="relative lg:row-span-2">
-      <div class="absolute inset-px rounded-lg bg-darkcard lg:rounded-l-4xl"></div>
-      <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
-        <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
-          <img src="images/project3-1.png" alt="Project 3" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
-        </div>
-      </div>
-      <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15 lg:rounded-l-4xl"></div>
-    </div>
-
-    <div class="relative">
-      <div class="absolute inset-px rounded-lg bg-darkcard"></div>
-      <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
-        <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
-          <img src="images/project3-2.png" alt="Project 3" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
-        </div>
-      </div>
-      <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15"></div>
-    </div>
-
-    <div class="relative">
-      <div class="absolute inset-px rounded-lg bg-darkcard"></div>
-      <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
-        <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
-          <img src="images/project3-3.png" alt="Project 3" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
-        </div>
-      </div>
-      <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15"></div>
-    </div>
-  </div>
-
-  <!-- Project 4 – Bento Layout -->
-  <div class="grid gap-4 sm:gap-6 lg:grid-cols-3 lg:grid-rows-2">
-    <div class="relative lg:row-span-2">
-      <div class="absolute inset-px rounded-lg bg-darkcard lg:rounded-l-4xl"></div>
-      <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
-        <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
-          <img src="images/project4-1.png" alt="Project 4" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
-        </div>
-      </div>
-      <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15 lg:rounded-l-4xl"></div>
-    </div>
-
-    <div class="relative">
-      <div class="absolute inset-px rounded-lg bg-darkcard"></div>
-      <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
-        <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
-          <img src="images/project4-2.png" alt="Project 4" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
-        </div>
-      </div>
-      <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15"></div>
-    </div>
-
-    <div class="relative">
-      <div class="absolute inset-px rounded-lg bg-darkcard"></div>
-      <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
-        <div class="absolute inset-0 overflow-hidden rounded-t-xl bg-gray-900 outline outline-white/10">
-          <img src="images/project4-3.png" alt="Project 4" class="w-full h-full object-cover glow-hover cursor-pointer" onclick="openModal(this.src)">
-        </div>
-      </div>
-      <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-white/15"></div>
-    </div>
-  </div>
-
-</div>
+</body>
+</html>
