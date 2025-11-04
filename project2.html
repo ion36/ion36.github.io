@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project X - Ion36 Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            darkbg: '#111827',
+            darkcard: '#1f2937'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glow-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .glow-hover:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+    }
+  </style>
+</head>
+<body class="bg-darkbg text-gray-100">
+
+  <!-- Header -->
+  <header class="text-center py-12 bg-darkcard">
+    <h1 class="text-4xl font-bold mb-2">Low Poly Car</h1>
+    <p class="text-gray-400 mb-4">3D Art & Game Development</p>
+    <a href="index.html" class="px-4 py-2 bg-indigo-600 rounded hover:bg-indigo-500 transition">Back to Portfolio</a>
+  </header>
+
+  <!-- Gallery -->
+  <main class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <img src="images/project2-1.webp" alt="Project 2 Image 1" class="glow-hover rounded-lg w-full h-full object-cover">
+    <img src="images/project2-2.png" alt="Project 2 Image 2" class="glow-hover rounded-lg w-full h-full object-cover">
+    <img src="images/project2-3.png" alt="Project 2 Image 3" class="glow-hover rounded-lg w-full h-full object-cover">
+    <img src="images/project2-4.png" alt="Project 2 Image 4" class="glow-hover rounded-lg w-full h-full object-cover">
+    <img src="images/project2-5.png" alt="Project 2 Image 5" class="glow-hover rounded-lg w-full h-full object-cover">
+  </main>
+
+  <footer class="text-center py-8 bg-darkcard mt-12">
+    <p class="text-gray-400">&copy; 2025 Ion36</p>
+  </footer>
+
+</body>
+</html>
