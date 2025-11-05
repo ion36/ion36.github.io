@@ -1,131 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3D Titan Portfolio</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.17.1/dist/cdn.min.js" defer></script>
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        darkbg: '#0f172a',
-        darkcard: '#1e293b',
-        accent: '#6366f1'
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Titan Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            darkbg: '#0f172a',
+            darkcard: '#1e293b',
+            accent: '#6366f1'
+          }
+        }
       }
     }
-  }
-}
-</script>
-<style>
-.glow-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  position: relative;
-}
-.glow-hover:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
-}
-</style>
+  </script>
+  <style>
+    .glow-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .glow-hover:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+    }
+    .modal {
+      display: none;
+    }
+    .modal.active {
+      display: flex;
+    }
+  </style>
 </head>
-<body class="bg-darkbg text-gray-100 font-sans" x-data="{ modalOpen: false, modalContent: '', modalType: 'image' }">
 
-<!-- Header -->
-<header class="text-center py-12 bg-darkcard">
-<h1 class="text-5xl font-bold mb-2 text-accent">3D Titan Portfolio</h1>
-<p class="text-lg text-gray-400">3D Art & Game Development</p>
-<div class="space-x-4 mt-4">
-  <a href="https://www.cgtrader.com/designers/ion36" target="_blank" class="px-4 py-2 bg-indigo-600 rounded hover:bg-indigo-500 transition">CGTrader</a>
-  <a href="https://www.youtube.com/@3dtitan731" target="_blank" class="px-4 py-2 bg-red-600 rounded hover:bg-red-500 transition">YouTube</a>
-  <a href="#" target="_blank" class="px-4 py-2 bg-green-600 rounded hover:bg-green-500 transition">Steam Page</a>
-</div>
-</header>
+<body class="bg-darkbg text-gray-100 font-sans">
 
-<!-- Main Content -->
-<main class="max-w-7xl mx-auto px-6 py-12">
-  <div class="grid grid-cols-2 md:grid-cols-4 auto-rows-auto gap-6">
-
-    <!-- Project 1 -->
-    <div class="glow-hover relative row-span-2 col-span-1" @click="modalOpen = true; modalContent='images/project3-3.png'; modalType='image'">
-      <img src="images/project3-3.png" alt="Project 1" class="w-full h-full object-cover rounded-lg">
-      <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4">
-        <h2 class="text-xl font-semibold text-white">Victory Mansions (1984)</h2>
-        <p class="text-gray-200 mt-1">A realistic model of an abandoned Victory Mansion building inspired by the 1984 novel</p>
-      </div>
+  <!-- Header -->
+  <header class="text-center py-12 bg-darkcard">
+    <h1 class="text-5xl font-bold mb-2 text-accent">3D Titan Portfolio</h1>
+    <p class="text-lg text-gray-400">3D Art & Game Development</p>
+    <div class="space-x-4 mt-4">
+      <a href="https://www.cgtrader.com/designers/ion36" target="_blank" class="px-4 py-2 bg-indigo-600 rounded hover:bg-indigo-500 transition">CGTrader</a>
+      <a href="https://www.youtube.com/@3dtitan731" target="_blank" class="px-4 py-2 bg-red-600 rounded hover:bg-red-500 transition">YouTube</a>
+      <a href="#" target="_blank" class="px-4 py-2 bg-green-600 rounded hover:bg-green-500 transition">Steam Page</a>
     </div>
+  </header>
 
-    <!-- Project 2 -->
-    <div class="glow-hover relative row-span-1 col-span-1" @click="modalOpen = true; modalContent='images/project2-1.webp'; modalType='image'">
-      <img src="images/project2-1.webp" alt="Project 2" class="w-full h-full object-cover rounded-lg">
-      <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4">
-        <h2 class="text-xl font-semibold text-white">Low Poly Car</h2>
-        <p class="text-gray-200 mt-1">A low poly model of a mini SUV</p>
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-6 py-12">
+    <div class="grid grid-cols-2 md:grid-cols-4 auto-rows-auto gap-6">
+
+      <!-- Project 1 -->
+      <div class="glow-hover relative row-span-2 col-span-1" onclick="openModal('images/project3-3.png', 'image')">
+        <img src="images/project3-3.png" alt="Project 1" class="w-full h-full object-cover rounded-lg filter brightness-90 grayscale hover:grayscale-0 transition">
+        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4">
+          <h2 class="text-xl font-semibold text-white">Victory Mansions (1984)</h2>
+          <p class="text-gray-200 mt-1">A realistic model of an abandoned Victory Mansion building inspired by the 1984 novel.</p>
+        </div>
       </div>
-    </div>
 
-    <!-- Project 3 - YouTube Video -->
-    <div class="glow-hover relative row-span-2 col-span-2" @click="modalOpen = true; modalContent='https://www.youtube.com/embed/UvOjl-EsfhI?modestbranding=1&rel=0'; modalType='video'">
-      <img src="images/project3-1.png" alt="Project 3" class="w-full h-full object-cover rounded-lg">
-      <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4">
-        <h2 class="text-xl font-semibold text-white">The Trench (short film)</h2>
-        <p class="text-gray-200 mt-1">A deep-sea themed 3D short film exploring underwater environments. Contributed to the project by building the 3D sets for the submarine and hospital room.</p>
+      <!-- Project 2 -->
+      <div class="glow-hover relative row-span-1 col-span-1" onclick="openModal('images/project2-1.webp', 'image')">
+        <img src="images/project2-1.webp" alt="Project 2" class="w-full h-full object-cover rounded-lg filter brightness-90 grayscale hover:grayscale-0 transition">
+        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4">
+          <h2 class="text-xl font-semibold text-white">Low Poly Car</h2>
+          <p class="text-gray-200 mt-1">A low poly model of a mini SUV.</p>
+        </div>
       </div>
-    </div>
 
-    <!-- Project 4 -->
-    <div class="glow-hover relative row-span-1 col-span-1" @click="modalOpen = true; modalContent='images/project3-1.png'; modalType='image'">
-      <img src="images/project3-1.png" alt="Project 4" class="w-full h-full object-cover rounded-lg">
-      <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4">
-        <h2 class="text-xl font-semibold text-white">Apple Cidar</h2>
-        <p class="text-gray-200 mt-1">A detailed, realistic apple cidar model.</p>
+      <!-- Project 3 - YouTube Video -->
+      <div class="glow-hover relative row-span-2 col-span-2" onclick="openModal('https://www.youtube.com/embed/UvOjl-EsfhI?modestbranding=1&rel=0', 'video')">
+        <img src="images/project3-1.png" alt="Project 3" class="w-full h-full object-cover rounded-lg filter brightness-90 grayscale hover:grayscale-0 transition">
+        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4">
+          <h2 class="text-xl font-semibold text-white">The Trench (short film)</h2>
+          <p class="text-gray-200 mt-1">A deep-sea themed 3D short film exploring underwater environments.</p>
+        </div>
       </div>
-    </div>
 
-    <!-- Project 5 -->
-    <div class="glow-hover relative row-span-1 col-span-2" @click="modalOpen = true; modalContent='images/project1-1.webp'; modalType='image'">
-      <img src="images/project1-1.webp" alt="Project 5" class="w-full h-full object-cover rounded-lg">
-      <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4">
-        <h2 class="text-2xl font-semibold text-white">Ultra Realistic Kitchen Scene</h2>
-        <p class="text-gray-200 mt-1">An ultra realistic 3D modeling with immersive environmental details.</p>
+      <!-- Project 4 -->
+      <div class="glow-hover relative row-span-1 col-span-1" onclick="openModal('images/project3-1.png', 'image')">
+        <img src="images/project3-1.png" alt="Project 4" class="w-full h-full object-cover rounded-lg filter brightness-90 grayscale hover:grayscale-0 transition">
+        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4">
+          <h2 class="text-xl font-semibold text-white">Apple Cider</h2>
+          <p class="text-gray-200 mt-1">A detailed, realistic apple cider model.</p>
+        </div>
       </div>
-    </div>
 
-    <!-- Project 6 -->
-    <div class="glow-hover relative row-span-1 col-span-2" @click="modalOpen = true; modalContent='images/project6-1.webp'; modalType='image'">
-      <img src="images/project6-1.webp" alt="Project 6" class="w-full h-full object-cover rounded-lg">
-      <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4">
-        <h2 class="text-xl font-semibold text-white">Crown & Chaos</h2>
-        <p class="text-gray-200 mt-1">A 2D, wave-spawner, fantasy combat game built using Godot and Blender.</p>
+      <!-- Project 5 -->
+      <div class="glow-hover relative row-span-1 col-span-2" onclick="openModal('images/project1-1.webp', 'image')">
+        <img src="images/project1-1.webp" alt="Project 5" class="w-full h-full object-cover rounded-lg filter brightness-90 grayscale hover:grayscale-0 transition">
+        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4">
+          <h2 class="text-2xl font-semibold text-white">Ultra Realistic Kitchen Scene</h2>
+          <p class="text-gray-200 mt-1">An ultra realistic 3D environment with advanced lighting details.</p>
+        </div>
       </div>
-    </div>
 
+      <!-- Project 6 -->
+      <div class="glow-hover relative row-span-1 col-span-2" onclick="openModal('images/project6-1.webp', 'image')">
+        <img src="images/project6-1.webp" alt="Project 6" class="w-full h-full object-cover rounded-lg filter brightness-90 grayscale hover:grayscale-0 transition">
+        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-4">
+          <h2 class="text-xl font-semibold text-white">Crown & Chaos</h2>
+          <p class="text-gray-200 mt-1">A 2D wave-spawner fantasy combat game built in Godot and Blender.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div id="modal" class="modal fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4 transition">
+    <div class="relative max-w-4xl w-full">
+      <button onclick="closeModal()" class="absolute top-2 right-4 text-white text-3xl font-bold hover:text-accent transition">&times;</button>
+      <div id="modal-content" class="rounded-lg overflow-hidden shadow-lg"></div>
+    </div>
   </div>
-</main>
 
-<!-- Modal -->
-<div x-show="modalOpen" x-transition class="fixed inset-0 z-50 flex items-center justify-center bg-black/80" @click.away="modalOpen = false">
-  <div class="relative max-w-4xl w-full mx-4">
-    <button @click="modalOpen = false" class="absolute top-2 right-2 text-white text-3xl">&times;</button>
+  <!-- Footer -->
+  <footer class="text-center py-8 bg-darkcard mt-12">
+    <p class="text-gray-400">&copy; 2025 3D Titan. All rights reserved.</p>
+  </footer>
 
-    <!-- Image Modal -->
-    <template x-if="modalType==='image'">
-      <img :src="modalContent" alt="Project Image" class="w-full h-auto rounded-lg shadow-lg">
-    </template>
+  <!-- JavaScript for Modal -->
+  <script>
+    const modal = document.getElementById('modal');
+    const modalContent = document.getElementById('modal-content');
 
-    <!-- Video Modal -->
-    <template x-if="modalType==='video'">
-      <iframe class="w-full h-[480px] rounded-lg shadow-lg" :src="modalContent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </template>
-  </div>
-</div>
+    function openModal(src, type) {
+      modal.classList.add('active');
+      if (type === 'video') {
+        modalContent.innerHTML = `
+          <iframe class="w-full h-[480px]" src="${src}" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>`;
+      } else {
+        modalContent.innerHTML = `<img src="${src}" alt="Project Image" class="w-full h-auto">`;
+      }
+    }
 
-<!-- Footer -->
-<footer class="text-center py-8 bg-darkcard mt-12">
-<p class="text-gray-400">&copy; 2025 3D Titan. All rights reserved.</p>
-</footer>
+    function closeModal() {
+      modal.classList.remove('active');
+      modalContent.innerHTML = ''; // stop video playback
+    }
+
+    // Close modal on background click
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+  </script>
 
 </body>
 </html>
